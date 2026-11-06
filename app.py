@@ -12,33 +12,31 @@ st.set_page_config(
     layout="centered"
 )
 
-# Estilos visuales: Fondo papel marfil con textura sutil, tipografía de máquina de escribir y estética editorial
+# Estilos visuales: Fondo sólido marfil claro, tipografía técnica en negrita y sin texturas de puntos
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap');
 
     .stApp { 
-        background-color: #fcf9f2; 
-        background-image: radial-gradient(#e3decb 0.75px, transparent 0.75px), radial-gradient(#e3decb 0.75px, #fcf9f2 0.75px);
-        background-size: 30px 30px;
-        background-position: 0 0, 15px 15px;
+        background-color: #f7f4ed; 
         color: #2b2825; 
         font-family: 'Inter', sans-serif;
     }
     
     h1, h2, h3 { 
-        font-family: 'Special Elite', monospace !important;
+        font-family: 'Space Mono', monospace !important;
+        font-weight: 700 !important;
         color: #1a1816 !important; 
-        font-weight: 400;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
         border-bottom: 1px solid #c8b996;
-        padding-bottom: 6px;
+        padding-bottom: 8px;
     }
 
     .stButton>button {
         background-color: #2b2825; 
-        color: #fcf9f2; 
-        font-family: 'Special Elite', monospace;
+        color: #f7f4ed; 
+        font-family: 'Space Mono', monospace;
         font-weight: bold;
         border-radius: 2px; 
         width: 100%; 
@@ -54,12 +52,12 @@ st.markdown("""
     }
 
     .streamlit-expanderHeader {
-        font-family: 'Special Elite', monospace !important;
+        font-family: 'Space Mono', monospace !important;
+        font-weight: 700 !important;
         color: #1a1816 !important;
-        background-color: #f0ebe1 !important;
+        background-color: #ebe5d8 !important;
         border: 1px solid #d4cbb8;
         border-radius: 2px;
-        font-weight: bold;
     }
 
     .stTextInput>div>div>input, .stNumberInput>div>div>input, .stSelectbox>div>div>select {
