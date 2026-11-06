@@ -4,6 +4,7 @@
 # ==============================================================================
 
 import streamlit as st
+import os
 
 # Configuración estética de la página web
 st.set_page_config(
@@ -75,10 +76,48 @@ st.markdown("**Propuesta de Co-Branding / Edición Cápsula — Arturo Calle Wom
 st.write("Sistema automatizado de control de inventario integral (200+ Referencias) y cálculo financiero de producción.")
 
 # ==============================================================================
+# SECCIÓN VISUAL: CATÁLOGO FOTOGRÁFICO EDITORIAL
+# ==============================================================================
+st.subheader("Registro Fotográfico de Colección")
+
+opcion_foto = st.selectbox("Seleccionar lámina editorial:", [
+    "Lámina 02 - Aretes Flor Dalia & Accesorios Silver",
+    "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo",
+    "Lámina 04 - Aretes Topo Flor Gold & Gargantilla",
+    "Lámina 05 - Candongas Loop Silver & Gargantilla",
+    "Lámina 06 - Aretes Amancay Silver & Pulsera Espiral",
+    "Lámina 07 - Aretes Amancay Gold & Pulseras",
+    "Lámina 08 - Aretes Stella Gold & Gargantilla",
+    "Lámina 09 - Candongas Calima Gold & Gargantilla",
+    "Lámina 10 - Aretes Rombo Naya Black & Gargantilla",
+    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble"
+])
+
+# Mapeo apuntando directamente a los archivos de imagen subidos en la raíz
+mapa_imagenes = {
+    "Lámina 02 - Aretes Flor Dalia & Accesorios Silver": "02.png",
+    "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo": "03.png",
+    "Lámina 04 - Aretes Topo Flor Gold & Gargantilla": "04.png",
+    "Lámina 05 - Candongas Loop Silver & Gargantilla": "05.png",
+    "Lámina 06 - Aretes Amancay Silver & Pulsera Espiral": "06.png",
+    "Lámina 07 - Aretes Amancay Gold & Pulseras": "07.png",
+    "Lámina 08 - Aretes Stella Gold & Gargantilla": "08.png",
+    "Lámina 09 - Candongas Calima Gold & Gargantilla": "09.png",
+    "Lámina 10 - Aretes Rombo Naya Black & Gargantilla": "10.png",
+    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble": "11.png"
+}
+
+if opcion_foto in mapa_imagenes and os.path.exists(mapa_imagenes[opcion_foto]):
+    st.image(mapa_imagenes[opcion_foto], use_column_width=True)
+else:
+    st.info("Seleccione una lámina disponible en el catálogo visual.")
+
+st.markdown("---")
+
+# ==============================================================================
 # BASE DE DATOS MASIVA: 200 REFERENCIAS DE INVENTARIO BODEGA YAYA
 # ==============================================================================
 inventario_bodega = {
-    # Cuentas Miyuki Delica 11/0 (Gramos) - Tonos Dorados y Metálicos (001 - 025)
     "Miyuki Delica 11/0 Dorado Galvanizado (g)": 85.0,
     "Miyuki Delica 11/0 Oro Real 24K (g)": 40.0,
     "Miyuki Delica 11/0 Oro Mate (g)": 60.0,
@@ -94,8 +133,6 @@ inventario_bodega = {
     "Miyuki Delica 11/0 Plata Oscura (g)": 40.0,
     "Miyuki Delica 11/0 Aluminio (g)": 35.0,
     "Miyuki Delica 11/0 Platino (g)": 30.0,
-    
-    # Cuentas Miyuki Duracoat y Opacas (026 - 060)
     "Miyuki Duracoat 11/0 Negro Mate (g)": 120.0,
     "Miyuki Duracoat 11/0 Blanco Marfil (g)": 95.0,
     "Miyuki Duracoat 11/0 Gris Humo (g)": 60.0,
@@ -121,8 +158,6 @@ inventario_bodega = {
     "Miyuki Duracoat 11/0 Menta Suave (g)": 45.0,
     "Miyuki Duracoat 11/0 Amarillo Sol (g)": 55.0,
     "Miyuki Duracoat 11/0 Naranja Mandarina (g)": 38.0,
-
-    # Cuentas Miyuki Transparentes y Lustradas (061 - 100)
     "Miyuki 11/0 Transparente Cristal (g)": 150.0,
     "Miyuki 11/0 Cristal AB Tornasol (g)": 100.0,
     "Miyuki 11/0 Cristal Mate Esmerilado (g)": 80.0,
@@ -163,8 +198,6 @@ inventario_bodega = {
     "Miyuki 11/0 Lined Green (g)": 50.0,
     "Miyuki 11/0 Lined Yellow (g)": 35.0,
     "Miyuki 11/0 Lined Pink (g)": 45.0,
-
-    # Cuentas Miyuki Delica 8/0 y 15/0 Especiales (101 - 130)
     "Miyuki Delica 8/0 Dorado Galvanizado (g)": 50.0,
     "Miyuki Delica 8/0 Negro Mate (g)": 60.0,
     "Miyuki Delica 8/0 Bronce (g)": 40.0,
@@ -195,8 +228,6 @@ inventario_bodega = {
     "Cuentas Magatama Miyuki Dorado (g)": 40.0,
     "Cuentas Magatama Miyuki Perlado (g)": 38.0,
     "Cuentas Magatama Miyuki Antracita (g)": 42.0,
-
-    # Hilos Técnicos y Cordones Especiales (131 - 160)
     "Hilo Aptan Especial para Tejido Blanco (m)": 200.0,
     "Hilo Aptan Especial para Tejido Negro (m)": 250.0,
     "Hilo Aptan Especial para Tejido Beige (m)": 180.0,
@@ -227,8 +258,6 @@ inventario_bodega = {
     "Cola de Rata Fina Negra (m)": 100.0,
     "Hilo Metálico Lamé Dorado (m)": 120.0,
     "Hilo Metálico Lamé Plateado (m)": 110.0,
-
-    # Herrajes, Componentes y Broches (161 - 200)
     "Herrajes Tubo Anodizado Silver (unidad)": 80.0,
     "Herrajes Tubo Oro 24K (unidad)": 75.0,
     "Herrajes Tubo Cobre Antiguo (unidad)": 50.0,
@@ -279,7 +308,7 @@ with st.expander("Inventario Completo en Bodega (200+ Referencias)"):
 st.markdown("---")
 
 # ==============================================================================
-# ENTRADA DE DATOS
+# ENTRADA DE DATOS PARA PRODUCCIÓN
 # ==============================================================================
 st.subheader("Parámetros de Producción y Diseño")
 
@@ -307,7 +336,7 @@ costo_insumo_unidad = st.number_input("Costo unitario del insumo ($ COP):", min_
 ejecutar = st.button("PROCESAR CÁPSULA Y VALIDAR INVENTARIO")
 
 # ==============================================================================
-# PROCESAMIENTO Y SALIDA
+# PROCESAMIENTO Y SALIDA FINANCIERA
 # ==============================================================================
 if ejecutar:
     stock_disponible = inventario_bodega[material_seleccionado]
