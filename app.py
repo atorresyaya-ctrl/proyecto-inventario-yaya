@@ -76,11 +76,12 @@ st.markdown("**Propuesta de Co-Branding / Edición Cápsula — Arturo Calle Wom
 st.write("Sistema automatizado de control de inventario integral (200+ Referencias) y cálculo financiero de producción.")
 
 # ==============================================================================
-# SECCIÓN VISUAL: CATÁLOGO FOTOGRÁFICO EDITORIAL
+# SECCIÓN VISUAL: CATÁLOGO FOTOGRÁFICO EDITORIAL (20 LÁMINAS)
 # ==============================================================================
 st.subheader("Registro Fotográfico de Colección")
 
 opcion_foto = st.selectbox("Seleccionar lámina editorial:", [
+    "Lámina 01 - Retrato Editorial & Joyas",
     "Lámina 02 - Aretes Flor Dalia & Accesorios Silver",
     "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo",
     "Lámina 04 - Aretes Topo Flor Gold & Gargantilla",
@@ -90,11 +91,21 @@ opcion_foto = st.selectbox("Seleccionar lámina editorial:", [
     "Lámina 08 - Aretes Stella Gold & Gargantilla",
     "Lámina 09 - Candongas Calima Gold & Gargantilla",
     "Lámina 10 - Aretes Rombo Naya Black & Gargantilla",
-    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble"
+    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble",
+    "Lámina 12 - Colección Cápsula Detalle Tonos Marrón",
+    "Lámina 13 - Ensamble Geométrico & Tejido",
+    "Lámina 14 - Primer Plano Pulseras y Dijes",
+    "Lámina 15 - Variaciones de Color y Textura",
+    "Lámina 16 - Editorial Estilo 16",
+    "Lámina 17 - Editorial Estilo 17",
+    "Lámina 18 - Editorial Estilo 18",
+    "Lámina 19 - Editorial Estilo 19",
+    "Lámina 20 - Editorial Estilo 20"
 ])
 
-# Mapeo apuntando directamente a los archivos de imagen subidos en la raíz
+# Mapeo completo de las 20 láminas con sus archivos correspondientes
 mapa_imagenes = {
+    "Lámina 01 - Retrato Editorial & Joyas": "01.png",
     "Lámina 02 - Aretes Flor Dalia & Accesorios Silver": "02.png",
     "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo": "03.png",
     "Lámina 04 - Aretes Topo Flor Gold & Gargantilla": "04.png",
@@ -104,7 +115,16 @@ mapa_imagenes = {
     "Lámina 08 - Aretes Stella Gold & Gargantilla": "08.png",
     "Lámina 09 - Candongas Calima Gold & Gargantilla": "09.png",
     "Lámina 10 - Aretes Rombo Naya Black & Gargantilla": "10.png",
-    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble": "11.png"
+    "Lámina 11 - Candongas Calima Gold & Gargantilla Doble": "11.png",
+    "Lámina 12 - Colección Cápsula Detalle Tonos Marrón": "12.png",
+    "Lámina 13 - Ensamble Geométrico & Tejido": "13.png",
+    "Lámina 14 - Primer Plano Pulseras y Dijes": "14.png",
+    "Lámina 15 - Variaciones de Color y Textura": "15.png",
+    "Lámina 16 - Editorial Estilo 16": "16.png",
+    "Lámina 17 - Editorial Estilo 17": "17.png",
+    "Lámina 18 - Editorial Estilo 18": "18.png",
+    "Lámina 19 - Editorial Estilo 19": "19.png",
+    "Lámina 20 - Editorial Estilo 20": "20.png"
 }
 
 if opcion_foto in mapa_imagenes and os.path.exists(mapa_imagenes[opcion_foto]):
