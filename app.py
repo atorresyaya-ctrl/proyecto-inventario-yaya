@@ -71,14 +71,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==============================================================================
-# ENCABEZADO INSTITUCIONAL Y LOGOTIPO DE LA MARCA
+# ENCABEZADO INSTITUCIONAL Y LOGOTIPO DE LA MARCA (CENTRADO Y MÁS GRANDE)
 # ==============================================================================
-if os.path.exists("Logo.png"):
-    st.image("Logo.png", width=160)
+col1, col2, col3 = st.columns([1, 1.5, 1])
+with col2:
+    if os.path.exists("Logo.png"):
+        st.image("Logo.png", use_container_width=True)
 
-st.title("YAYA | Joyería Artesanal")
-st.markdown("**Propuesta de Co-Branding / Edición Cápsula — Arturo Calle Woman**")
-st.write("Sistema automatizado de control de inventario integral (200+ Referencias) y cálculo financiero de producción.")
+# Título más pequeño y centrado
+st.markdown("<h3 style='text-align: center; border-bottom: none;'>YAYA | JOYERÍA ARTESANAL</h3>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'><strong>Propuesta de Co-Branding / Edición Cápsula — Arturo Calle Woman</strong><br>Sistema automatizado de control de inventario integral (200+ Referencias) y cálculo financiero de producción.</p>", unsafe_allow_html=True)
+st.markdown("---")
 
 # ==============================================================================
 # SECCIÓN VISUAL: CATÁLOGO FOTOGRÁFICO EDITORIAL (FORMATO PNG)
@@ -86,7 +89,6 @@ st.write("Sistema automatizado de control de inventario integral (200+ Referenci
 st.subheader("Registro Fotográfico de Colección")
 
 opcion_foto = st.selectbox("Seleccionar lámina editorial:", [
-    "Lámina 01 - Retrato Editorial & Joyas",
     "Lámina 02 - Aretes Flor Dalia & Accesorios Silver",
     "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo",
     "Lámina 04 - Aretes Topo Flor Gold & Gargantilla",
@@ -110,7 +112,6 @@ opcion_foto = st.selectbox("Seleccionar lámina editorial:", [
 ])
 
 mapa_imagenes = {
-    "Lámina 01 - Retrato Editorial & Joyas": "01.png",
     "Lámina 02 - Aretes Flor Dalia & Accesorios Silver": "02.png",
     "Lámina 03 - Aretes Domo Doble Gold & Collar Poporo": "03.png",
     "Lámina 04 - Aretes Topo Flor Gold & Gargantilla": "04.png",
@@ -134,7 +135,7 @@ mapa_imagenes = {
 }
 
 if opcion_foto in mapa_imagenes and os.path.exists(mapa_imagenes[opcion_foto]):
-    st.image(mapa_imagenes[opcion_foto], use_column_width=True)
+    st.image(mapa_imagenes[opcion_foto], use_container_width=True)
 else:
     st.info("Seleccione una lámina disponible en el catálogo visual.")
 
